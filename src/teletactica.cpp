@@ -12,27 +12,27 @@ Rational::Rational(int numerator, int denominator)
 /**
  * @brief Copy constructor.
  */
-Rational::Rational(const Rational& other) noexcept
-    : m_num(other.m_num), m_den(other.m_den) {}
+Rational::Rational(const Rational& value) noexcept
+    : m_num(value.m_num), m_den(value.m_den) {}
 
 /**
  * @brief Move constructor.
  */
-Rational::Rational(Rational&& other) noexcept
-    : m_num(other.m_num), m_den(other.m_den) {
-    other.m_num = 0;
-    other.m_den = 1;
+Rational::Rational(Rational&& value) noexcept
+    : m_num(value.m_num), m_den(value.m_den) {
+    value.m_num = 0;
+    value.m_den = 1;
 }
 
 /**
  * @brief Move assignment operator.
  */
-Rational& Rational::operator=(Rational&& other) noexcept {
-    if (this != &other) {
-        m_num = other.m_num;
-        m_den = other.m_den;
-        other.m_num = 0;
-        other.m_den = 1;
+Rational& Rational::operator=(Rational&& value) noexcept {
+    if (this != &value) {
+        m_num = value.m_num;
+        m_den = value.m_den;
+        value.m_num = 0;
+        value.m_den = 1;
     }
     return *this;
 }
@@ -40,40 +40,40 @@ Rational& Rational::operator=(Rational&& other) noexcept {
 /**
  * @brief Add two rational numbers.
  */
-Rational Rational::operator+(const Rational& other) const noexcept {
-    int num = m_num * other.m_den + other.m_num * m_den;
-    int den = m_den * other.m_den;
+Rational Rational::operator+(const Rational& value) const noexcept {
+    int num = m_num * value.m_den + value.m_num * m_den;
+    int den = m_den * value.m_den;
     return Rational(num, den);
 }
 
 /**
  * @brief Subtract two rational numbers.
  */
-Rational Rational::operator-(const Rational& other) const noexcept {
-    int num = m_num * other.m_den - other.m_num * m_den;
-    int den = m_den * other.m_den;
+Rational Rational::operator-(const Rational& value) const noexcept {
+    int num = m_num * value.m_den - value.m_num * m_den;
+    int den = m_den * value.m_den;
     return Rational(num, den);
 }
 
 /**
  * @brief Multiply two rational numbers.
  */
-Rational Rational::operator*(const Rational& other) const noexcept {
-    int num = m_num * other.m_num;
-    int den = m_den * other.m_den;
+Rational Rational::operator*(const Rational& value) const noexcept {
+    int num = m_num * value.m_num;
+    int den = m_den * value.m_den;
     return Rational(num, den);
 }
 
 /**
  * @brief Divide two rational numbers.
  */
-Rational Rational::operator/(const Rational& other) const noexcept {
-    if (other.m_num == 0) {
+Rational Rational::operator/(const Rational& value) const noexcept {
+    if (value.m_num == 0) {
         std::cerr << "ERROR: Division by zero!" << std::endl;
         return Rational(0, 1);
     }
-    int num = m_num * other.m_den;
-    int den = m_den * other.m_num;
+    int num = m_num * value.m_den;
+    int den = m_den * value.m_num;
     return Rational(num, den);
 }
 

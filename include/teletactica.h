@@ -26,42 +26,42 @@ public:
     /**
      * @brief Copy constructor.
      */
-    Rational(const Rational& other) noexcept;
+    Rational(const Rational& value) noexcept;
 
     /**
      * @brief Move constructor.
      */
-    Rational(Rational&& other) noexcept;
+    Rational(Rational&& value) noexcept;
 
     /**
      * @brief Move assignment operator.
      */
-    Rational& operator=(Rational&& other) noexcept;
+    Rational& operator=(Rational&& value) noexcept;
 
     /**
      * @brief Copy assignment operator (deleted for simplicity and safety).
      */
-    Rational& operator=(const Rational& other) = delete;
+    Rational& operator=(const Rational& value) = delete;
 
     /**
      * @brief Adds two rational numbers.
      */
-    Rational operator+(const Rational& other) const noexcept;
+    Rational operator+(const Rational& value) const noexcept;
 
     /**
      * @brief Subtracts two rational numbers.
      */
-    Rational operator-(const Rational& other) const noexcept;
+    Rational operator-(const Rational& value) const noexcept;
 
     /**
      * @brief Multiplies two rational numbers.
      */
-    Rational operator*(const Rational& other) const noexcept;
+    Rational operator*(const Rational& value) const noexcept;
 
     /**
      * @brief Divides two rational numbers.
      */
-    Rational operator/(const Rational& other) const noexcept;
+    Rational operator/(const Rational& value) const noexcept;
 
     /**
      * @brief Get the numerator.
